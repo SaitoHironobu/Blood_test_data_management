@@ -7,12 +7,16 @@ import openpyxl
 
 sg.SetOptions(text_justification='right')
 layout = [
-    [sg.Text('顧客情報登録フォーム',font=('小塚ゴシック pro B',16), pad=(50,0))],
-    [sg.Text('会社名',size=(15,1)), sg.InputText(key='-Company-',size=(22,1))],
-    [sg.Text('名前',size=(15,1)), sg.InputText(key='-Sei-', default_text= '性', size=(10,1)), sg.InputText(key='-Mei-', default_text= '名',size=(10,1))],
-    [sg.Text('ふりがな',size=(15,1)), sg.InputText(key='-Kana_sei-', default_text= 'せい',size=(10,1)), sg.InputText(key='-Kana_mei-', default_text= 'めい',size=(10,1))],
-    [sg.Text('メールアドレス',size=(15,1)), sg.InputText(key='-Email-', default_text= '@', size=(22,1))],
-    [sg.Text('電話番号',size=(15,1)), sg.InputText(key='-Phone-', size=(22,1))],
+    [sg.Text('血液データ登録フォーム',font=('小塚ゴシック pro B',16), pad=(50,0))],
+    [sg.Text('検査日',size=(15,1)), sg.InputText(key='-Company-',size=(18,1))],
+    [sg.Text('LDLコレステロール',size=(15,1)), sg.InputText(key='-Sei-', size=(10,1))],
+    [sg.Text('中性脂肪(TG)',size=(15,1)), sg.InputText(key='-Kana_sei-', size=(10,1))],
+    [sg.Text('尿素窒素(GUN)',size=(15,1)), sg.InputText(key='-Email-', size=(10,1))],
+    [sg.Text('クレアチニン',size=(15,1)), sg.InputText(key='-Phone-', size=(10,1))],
+    [sg.Text('尿酸(UA)',size=(15,1)), sg.InputText(key='-Phone-', size=(10,1))],
+    [sg.Text('血糖(グレコース)',size=(15,1)), sg.InputText(key='-Phone-', size=(10,1))],
+    [sg.Text('HbA1c(NGSP)',size=(15,1)), sg.InputText(key='-Phone-', size=(10,1))],
+    [sg.Text('体重',size=(15,1)), sg.InputText(key='-Phone-', size=(10,1))],
     [sg.Text('性別',size=(15,1)), sg.Radio('男', 'sex', default= True, key='-Male-'),
     sg.Radio('女', 'sex',  key='-Female-')],
     [sg.Text('年齢',size=(15,1)), sg.Spin([i for i in range(20,90)], initial_value=35, key='-Age-')],
