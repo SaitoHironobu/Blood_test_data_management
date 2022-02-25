@@ -48,14 +48,20 @@ def get_wgt_values():
     return data
 
 
+
 while True:
     event, value = window.read() 
     if event == '-Register-':
         blood_test_data = get_wgt_values()
+        wb = openpyxl.load_workbook('血液検査データ.xlsx')
+        ws = wb['Sheet1']
+        last_row = ws.max_row + 1
+        for colm in range(len(blood_test_data)):
+            ws.cell(row=last_row, column=colm +1, value=blood_test_data[colm])
+            #print ('row=',last_row, 'column=',colm +1, 'value=',blood_test_data[colm])
+        wb.save('血液検査データ.xlsx')
+        #print(blood_test_data)
         
-        print(blood_test_data)
-
-
     elif event is None:
         break
     
