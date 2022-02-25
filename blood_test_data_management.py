@@ -47,20 +47,44 @@ def get_wgt_values():
     
     return data
 
+def insert_to_db(data):
+    try:
+        wb = openpyxl.load_workbook('血液検査データ.xlsx')
+        ws = wb['Sheet1']
+        last_row = ws.max_row + 1
+        for colm in range(len(data)):
+            ws.cell(row=last_row, column=colm + 1, value=data[colm])
+        wb.save('血液検査データ.xlsx')
+        status = 'succeed'
+    except:
+        status = None
+    return status
 
+def wgt_clear():
+    window.find_element('-Day-').Update('')
+    window.find_element('-Ldl-').Update('')
+    window.find_element('-Tg-').Update('')
+    window.find_element('-Bun-').Update('')
+    window.find_element('-Cr-').Update('')
+    window.find_element('-Ua-').Update('')
+    window.find_element('-Bls-').Update('')
+    window.find_element('-Hba1c-').Update('')
+    window.find_element('-Bw-').Update('')
+    
 
 while True:
     event, value = window.read() 
     if event == '-Register-':
         blood_test_data = get_wgt_values()
-        wb = openpyxl.load_workbook('血液検査データ.xlsx')
-        ws = wb['Sheet1']
-        last_row = ws.max_row + 1
-        for colm in range(len(blood_test_data)):
-            ws.cell(row=last_row, column=colm +1, value=blood_test_data[colm])
-            #print ('row=',last_row, 'column=',colm +1, 'value=',blood_test_data[colm])
-        wb.save('血液検査データ.xlsx')
-        #print(blood_test_data)
+        
+        result = insert_to_db(blood_test_data)
+        
+        if result == 'succeed':
+            sg.popup('追記が成功しました.')
+            wgt_clear()
+        else:
+            sg.popup('追記が失敗しました。')
+
         
     elif event is None:
         break
