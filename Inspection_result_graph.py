@@ -170,8 +170,30 @@ def body_weight_value():
 
 while True:
     event, value = window.read() 
-    if event == '-btn1-':
+    if event == '-btn2-':
         neutral_data = neutral_fat_value()
+        
+    elif event == '-btn3-':
+        neutral_data02 = neutral_ldl_value()
+        
+    elif event == '-btn4-':
+        neutral_data03 = urea_nitrogen_value()
+        
+    elif event == '-btn5-':
+        neutral_data04 = urea_nitrogen_value()
+        
+    elif event == '-btn6-':
+        netural_data05 = uric_acid_value()
+        
+    elif event == '-btn7-':
+        netural_data07 = blood_sugar_value()
+        
+    elif event == '-btn8-':
+        netural_data08 = hba1c_value()
+        
+    elif event == '-btn9-':
+        body_weight =  body_weight_value()
+        
     elif event is None:
         break
     
