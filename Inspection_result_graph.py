@@ -1,4 +1,5 @@
 #import seaborn
+from turtle import color
 import pandas as pd
 import numpy as np
 import matplotlib.style
@@ -28,6 +29,7 @@ layout = [
 window = sg.Window('bgdisplay', layout)
 
 #中性脂肪ボタン
+#中性脂肪をクリックするとグラフを表示
 def neutral_fat_value():
     path = Path('血液検査データ.xlsx')
     df = pd.read_excel(path, sheet_name='Sheet1', header=0, engine='openpyxl')
@@ -40,8 +42,14 @@ def neutral_fat_value():
 
     x =(x0) 
     y = (x1) 
-
-    plt.plot(x, y)
+#colorは線の色、markerはデータのマーカー
+    plt.plot(x, y, color='blue', marker='o')
+#グラフタイトルとラベル
+    plt.title('Triglyceride graph', fontsize=14)
+    plt.xlabel('Year_Month', fontsize=14)
+    plt.ylabel('Neutral fat', fontsize=14)
+#グラフに縦線と横線を追加 gridをtrueにする
+    plt.grid(True)
     plt.show()
     
 #LDLコレステロール
@@ -58,7 +66,13 @@ def neutral_ldl_value():
     x =(x0) 
     y = (x1) 
 
-    plt.plot(x, y)
+    plt.plot(x, y, color='blue', marker='o')
+    #グラフタイトルとラベル
+    plt.title('LDL cholesterol graph', fontsize=14)
+    plt.xlabel('Year_Month', fontsize=14)
+    plt.ylabel('LDL cholesterol ', fontsize=14)
+    #グラフに縦線と横線を追加 gridをtrueにする
+    plt.grid(True)
     plt.show()
     
     #尿素窒素
@@ -75,11 +89,17 @@ def urea_nitrogen_value():
     x =(x0) 
     y = (x1) 
 
-    plt.plot(x, y)
+    plt.plot(x, y, color='blue', marker='o')
+    #グラフタイトルとラベル
+    plt.title('Urea nitrogen graph', fontsize=14)
+    plt.xlabel('Year_Month', fontsize=14)
+    plt.ylabel('Urea nitrogen', fontsize=14)
+    #グラフに縦線と横線を追加 gridをtrueにする
+    plt.grid(True)
     plt.show()
     
     #クレアチニン
-def urea_nitrogen_value():
+def creatinine_value():
     path = Path('血液検査データ.xlsx')
     df = pd.read_excel(path, sheet_name='Sheet1', header=0, engine='openpyxl')
     x0 = df.loc[:, '検査日'].tolist()
@@ -92,7 +112,13 @@ def urea_nitrogen_value():
     x =(x0) 
     y = (x1) 
 
-    plt.plot(x, y)
+    plt.plot(x, y, color='blue', marker='o')
+        #グラフタイトルとラベル
+    plt.title('Creatinine graph', fontsize=14)
+    plt.xlabel('Year_Month', fontsize=14)
+    plt.ylabel('Creatinine ', fontsize=14)
+    #グラフに縦線と横線を追加 gridをtrueにする
+    plt.grid(True)
     plt.show()
 
 #尿酸 uric acid
@@ -109,7 +135,13 @@ def uric_acid_value():
     x =(x0) 
     y = (x1) 
 
-    plt.plot(x, y)
+    plt.plot(x, y, color='blue', marker='o')
+    #グラフタイトルとラベル
+    plt.title('uric acid graph', fontsize=14)
+    plt.xlabel('Year_Month', fontsize=14)
+    plt.ylabel('uric acid ', fontsize=14)
+    #グラフに縦線と横線を追加 gridをtrueにする
+    plt.grid(True)
     plt.show()
     
     
@@ -127,7 +159,13 @@ def blood_sugar_value():
     x =(x0) 
     y = (x1) 
 
-    plt.plot(x, y)
+    plt.plot(x, y, color='blue', marker='o')
+    #グラフタイトルとラベル
+    plt.title('Blood sugar graph', fontsize=14)
+    plt.xlabel('Year_Month', fontsize=14)
+    plt.ylabel('Blood sugar ', fontsize=14)
+    #グラフに縦線と横線を追加 gridをtrueにする
+    plt.grid(True)
     plt.show()
 
 
@@ -145,7 +183,13 @@ def hba1c_value():
     x =(x0) 
     y = (x1) 
 
-    plt.plot(x, y)
+    plt.plot(x, y, color='blue', marker='o')
+    #グラフタイトルとラベル
+    plt.title('HbA1c graph', fontsize=14)
+    plt.xlabel('Year_Month', fontsize=14)
+    plt.ylabel('HbA1c ', fontsize=14)
+    #グラフに縦線と横線を追加 gridをtrueにする
+    plt.grid(True)
     plt.show()
 
 #体重 body weight 
@@ -162,7 +206,13 @@ def body_weight_value():
     x =(x0) 
     y = (x1) 
 
-    plt.plot(x, y)
+    plt.plot(x, y, color='blue', marker='o')
+    #グラフタイトルとラベル
+    plt.title('body weight graph', fontsize=14)
+    plt.xlabel('Year_Month', fontsize=14)
+    plt.ylabel('body weight ', fontsize=14)
+    #グラフに縦線と横線を追加 gridをtrueにする
+    plt.grid(True)
     plt.show()
 
 
@@ -180,7 +230,7 @@ while True:
         neutral_data03 = urea_nitrogen_value()
         
     elif event == '-btn5-':
-        neutral_data04 = urea_nitrogen_value()
+        neutral_data04 = creatinine_value()
         
     elif event == '-btn6-':
         netural_data05 = uric_acid_value()
